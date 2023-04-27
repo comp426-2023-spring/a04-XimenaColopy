@@ -5,9 +5,9 @@ import minimist from 'minimist';
 import express from 'express'
 
 const args  = minimist(process.argv.slice(2));
-console.log(args);
+//console.log(args);
 const PORT = args.port || 5000;
-console.log(PORT);
+//console.log(PORT);
 const app = express();
 app.use(express.json());
 //app.use(express.urlencoded({extended: true}));
@@ -24,6 +24,12 @@ app.get('/app/rps/', (req, res) => {
   //console.log(req.body.move);
   res.status(200).send(JSON.stringify(rps())).end();
 })
+
+app.get('/app/rpsls/', (req, res) => {
+  //console.log(req.body.move);
+  res.status(200).send(JSON.stringify(rpsls())).end();
+})
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
