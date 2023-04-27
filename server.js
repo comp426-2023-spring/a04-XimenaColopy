@@ -60,11 +60,12 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
   res.status(200).send(JSON.stringify(rpsls(req.params.shot))).end();
 })
 
+app.get('*', (req, res) => {
+  res.status(404).send('404 NOT FOUND');
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
 
 
-app.get('*', (req, res) => {
-  res.status(404).send('404 NOT FOUND');
-})
